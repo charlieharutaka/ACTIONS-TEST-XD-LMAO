@@ -35,4 +35,4 @@ jobs:
           echo test, and deploy your project.
       - name: List PR Reviewers
         run: |
-          echo ${{ github.event.pull_request.requested_reviewers }}
+          echo ${{ join(github.event.pull_request.requested_reviewers) }}
