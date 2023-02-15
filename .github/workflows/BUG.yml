@@ -34,5 +34,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: List PR Reviewers
+        id: reviewers
         run: |
-          echo ${{ join(github.event.pull_request.requested_reviewers) }}
+          echo "REVIEWERS=${{ join(github.event.pull_request.requested_reviewers) }}" >> $GITHUB_OUTPUT
+      - name: Look at last step
+        run: |
+          echo ${{ steps.reviewers.outputs.REVIEWERS }}
+      
